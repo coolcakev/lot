@@ -15,7 +15,7 @@
         <form method="get">
             <div class="form-group">
                 <label class="control-label">price</label>
-                <input name="sum" type="number" value="" asp-route-id="@Model.Id" class="form-control" />
+                <input name="sum" type="number" value="@ViewBag.sum" asp-route-id="@Model.Id" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="make a bid" class="btn btn-default" />

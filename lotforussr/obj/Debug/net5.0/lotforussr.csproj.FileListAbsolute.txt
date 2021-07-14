@@ -157,3 +157,5 @@ C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\Razor\Views\H
 C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\Razor\Views\Home\Edit.cshtml.g.cs
 C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\Razor\Views\Home\Fullbid.cshtml.g.cs
 C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\Razor\Views\Home\Monforbid.cshtml.g.cs
+C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\lotforussr.csproj.AssemblyReference.cache
+C:\Users\vital\source\repos\lotforussr\lotforussr\obj\Debug\net5.0\Razor\Views\Home\AddToBalance.cshtml.g.cs

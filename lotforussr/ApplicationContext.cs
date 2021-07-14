@@ -13,6 +13,11 @@ namespace lotforussr
         {
             public DbSet<User> Users { get; set; }
         public DbSet<History> Histories { get; set; }
+        public DbSet<Historyforlot> Historyforlots { get; set; }
+
+
+        public DbSet<Historyforuser> Historyforusers { get; set; }
+
 
         public DbSet<lot> Lots { get; set; }
 

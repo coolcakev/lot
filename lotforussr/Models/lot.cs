@@ -13,7 +13,7 @@ namespace lotforussr.Models
         public int Initialprice { get; set; }
         public int? Finalprice { get; set; }
         public bool isbid { get; set; }
-        public List<History> History { get; set; }
+        public List<Historyforlot> History { get; set; }
         public int UserId { get; set; }
         public User User { get; set;  }
     }

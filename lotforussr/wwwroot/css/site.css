@@ -72,3 +72,11 @@ body {
 .my {
     margin-right: 30px;
 }
+.balance {
+    display: flex;
+    justify-content: space-between;
+}
+.clp {
+    display: inline;
+    margin-right: 30px;
+}

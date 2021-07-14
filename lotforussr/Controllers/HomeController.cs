@@ -178,14 +178,15 @@ namespace lotforussr.Controllers
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> Fullbid()
-        {
-            var bid = db.Lots.Include(i => i.User).Where(i => i.isbid).ToList();
+        { 
+            var bid = db.Lots.Include(i => i.User).Where(i => i.isbid && !i.User.isreg).ToList();
             return View(bid);
         }
         public async Task<IActionResult> Monforbid(int? id)
         {
             if (id!=null)
             {
+                ViewBag.Sum = 0;
                 var lotbid = db.Lots.Include(i => i.User).ToList().SingleOrDefault(i => i.Id == id); ;
                 return View(lotbid);
             }
@@ -194,17 +195,46 @@ namespace lotforussr.Controllers
         [HttpPost]
         public async Task<IActionResult> Monforbid(int? id,int sum)
         {
-            var lot = db.Lots.Include(i=>i.User).Include(i=>i.History).ToList().SingleOrDefault(i => i.Id == id);
-            lot.Finalprice = sum;
-            var regu = db.Users.Single(i=>i.isreg);
-            var his = new History { bid = sum, bidusername = regu.UserName, Userforbid = regu,Lot=lot };
-            db.Histories.Add(his);
-            lot.History.Add(his);
+            var lot = db.Lots.Include(i => i.User).Include(i => i.History).ToList().SingleOrDefault(i => i.Id == id);
+            var regu = db.Users.Include(i=>i.Histories). Single(i => i.isreg);
+            var hisforlot = new Historyforlot { bid = sum, bidusername = regu.UserName  };
+            var hisforuser = new Historyforuser { bid = sum, bidlot=lot.Name };
+            if (sum>regu.balance)
+            {
+                ViewBag.Sum = sum;
+                return View(lot);
+            }
+            else
+            {
+                lot.Finalprice = sum;
+                regu.Histories.Add(hisforuser);
+                regu.balance -= sum;
+                lot.History.Add(hisforlot);
+                db.Update(lot);
+                db.Update(regu);
+                db.AddRange(hisforlot, hisforuser);
 
-            db.Update(lot);
+
+
+                db.SaveChanges();
+                var temp = db.Lots.Include(i => i.History).Include(i => i.User).ToList();
+                return RedirectToAction("Fullbid");
+            }
+            
+        }
+        public async Task<IActionResult> AddToBalance()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddToBalance(int sum)
+        {
+            var user = db.Users.SingleOrDefault(i=>i.isreg);
+            user.balance += sum;
+            db.Update(user);
             db.SaveChanges();
-            var temp = db.Lots.Include(i => i.History).Include(i=>i.User).ToList();
-            return RedirectToAction("Fullbid");
+            return RedirectToAction("Index");
+         
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

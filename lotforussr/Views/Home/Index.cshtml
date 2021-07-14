@@ -8,8 +8,18 @@
         {
             if (Model.isreg)
             {
-                <a class="my" asp-action="Create" asp-controller="Home" asp-route-id="">create lot</a>
-                <a  asp-action="Fullbid" asp-controller="Home" asp-route-id="">see on bid</a>
+        <div class="balance">
+            <div>
+            <a class="my" asp-action="Create" asp-controller="Home" asp-route-id="">create lot</a>
+            <a asp-action="Fullbid" asp-controller="Home" asp-route-id="">see on bid</a>
+            </div>
+            <div >
+            <p class="clp">@Model.balance</p>
+                <a  asp-area="" asp-controller="Home" asp-action="AddToBalance">add to balance</a>
+
+            </div>
+
+        </div>
 
 
                 foreach (var item in Model?.Lots ?? new List<lot>())

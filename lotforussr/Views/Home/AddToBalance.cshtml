@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "AddToBalance";
+}
+
+
+<form asp-action="AddToBalance" asp-controller="home">
+    <form method="get">
+        <div class="form-group">
+            <label class="control-label">enter your sum</label>
+            <input name="sum" type="number" value="" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn btn-default" />
+        </div>
+    </form>
+</form>
+

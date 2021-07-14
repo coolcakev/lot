@@ -12,8 +12,9 @@ namespace lotforussr.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public bool isreg { get; set; }
+        public int balance { get; set; }
         public List<lot> Lots { get; set; }
-        public List<History> Histories { get; set; }
+        public List<Historyforuser> Histories { get; set; }
 
 
 
