@@ -1,0 +1,24 @@
+﻿@model lotforussr.Models.lot
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input name="name"type="text" asp-for="Name" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <input type="text" asp-for="Description" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Initialprice" class="control-label">Initialprice</label>
+        <input type="number" asp-for="Initialprice" value=""  class="form-control" />
+    </div>
+   
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>
+

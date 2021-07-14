@@ -1,0 +1,24 @@
+﻿@model lotforussr.Models.lot
+@{
+    ViewBag.Title = "Редагування  пользователя";
+}
+
+<form asp-action="Edit" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" value="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <input type="text" asp-for="Description" value="@Model.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Initialprice" class="control-label">Email</label>
+        <input type="number" asp-for="Initialprice" value="@Model.Initialprice" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="змінити" class="btn btn-default" />
+    </div>
+</form>
+
+

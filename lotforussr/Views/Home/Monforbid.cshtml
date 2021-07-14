@@ -1,0 +1,26 @@
+﻿@model lot
+@{
+    ViewData["Title"] = "Monforbid";
+}
+
+<p>
+    name user:@Model?.User?.UserName
+</p>
+<p>
+    name lot:@Model?.Name
+</p>
+<p>
+    start price:@Model?.Initialprice
+    <form asp-action="Monforbid" asp-controller="home">
+        <form method="get">
+            <div class="form-group">
+                <label class="control-label">price</label>
+                <input name="sum" type="number" value="" asp-route-id="@Model.Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="make a bid" class="btn btn-default" />
+            </div>
+        </form>
+        </form>
+</p>
+

@@ -1,0 +1,30 @@
+﻿@model lotforussr.Models.lot
+@{
+    ViewBag.Title = "Все деталі";
+}
+
+<div>
+    <p> Name: @Model.Name</p>
+
+    <p> descriptions: @Model.Description</p>
+    <p> Initialprice: @Model.Initialprice</p>
+    <p> Finalprice: @Model.Finalprice</p>
+    <p>
+        History: @{
+
+            foreach (var item in Model.History)
+            {
+            <p> UserName: @Model?.User?.UserName</p>
+            <p> UserName's bid: @item.bid</p>
+
+        }
+        } </p>
+
+
+
+    </div>
+
+
+
+
+

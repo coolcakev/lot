@@ -1,0 +1,54 @@
+﻿@model lotforussr.Models.User
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table class="table">
+    @{
+        if (Model != null)
+        {
+            if (Model.isreg)
+            {
+                <a class="my" asp-action="Create" asp-controller="Home" asp-route-id="">create lot</a>
+                <a  asp-action="Fullbid" asp-controller="Home" asp-route-id="">see on bid</a>
+
+
+                foreach (var item in Model?.Lots ?? new List<lot>())
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+
+
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" asp-route-name="@item.Name">details</a>
+                            <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Bidon" asp-controller="Home" asp-route-id="@item.Id">BidON</a>
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <div class="text-center">
+                    <h1 class="display-4">Welcome</h1>
+                    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                </div>
+
+            }
+        }
+        else
+        {
+            <div class="text-center">
+                <h1 class="display-4">Welcome</h1>
+                <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            </div>
+
+        }
+
+
+
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿@using System.Collections.Generic;
+@model List<lotforussr.Models.lot>
+@{
+    ViewData["Title"] = "Fullbid";
+}
+@{
+    foreach (var item in Model)
+    {
+        <p>
+            name user:@item?.User?.UserName
+        </p>
+        <p>
+            name lot:@item?.Name
+        </p>
+        <p>
+            start price:@item?.Initialprice 
+
+            <a asp-action="Monforbid" asp-controller="Home" asp-route-id="@item.Id"> зробити ставку </a>
+
+        </p>
+        
+    }
+}
+
+
